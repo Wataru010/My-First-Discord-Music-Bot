@@ -1,5 +1,7 @@
 icon.ico
 src/commands/play_song/unused/
+package-lock.json
+package.json
 
 # compiled output
 /dist
