@@ -1,4 +1,5 @@
-const { YouTubeExtractor } = require('@discord-player/extractor');
+// const { YouTubeExtractor } = require('@discord-player/extractor');
+const { YoutubeiExtractor } = require("discord-player-youtubei");
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { useMainPlayer, useQueue, QueryType } = require("discord-player");
 
@@ -41,7 +42,7 @@ module.exports = {
             }
 
             // registering extractor YouTube
-            await player.extractors.register(YouTubeExtractor, {});
+            await player.extractors.register(YoutubeiExtractor, {});
 
             if (!queue.channel) await queue.connect(voice_channel);
 
@@ -56,7 +57,9 @@ module.exports = {
                     return;
                 }
 
-                await interaction.reply(`Song: ${result_list.tracks[0].metadata['title']} Added!`);
+                // console.log(result_list.tracks[0].description);
+
+                await interaction.reply(`Song: ${result_list.tracks[0].title} Added!`);
                 queue.addTrack(result_list.tracks[0]);
 
                 if (!queue.isPlaying()) await queue.node.play();

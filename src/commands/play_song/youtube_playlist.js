@@ -1,4 +1,5 @@
-const { YouTubeExtractor } = require('@discord-player/extractor');
+// const { YouTubeExtractor } = require('@discord-player/extractor');
+const { YoutubeiExtractor } = require("discord-player-youtubei");
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { useMainPlayer, useQueue, QueryType } = require("discord-player");
 // const ytpl = require('ytpl');
@@ -42,7 +43,7 @@ module.exports = {
             }
 
             // registering extractor YouTube
-            await player.extractors.register(YouTubeExtractor, {});
+            await player.extractors.register(YoutubeiExtractor, {});
 
             // queue.node.setBitrate()
 
